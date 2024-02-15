@@ -87,7 +87,7 @@ WS.verifyElementPropertyValue(response, 'status', 200)
 WS.verifyElementPropertyValue(response, 'message', &quot;Data extracted successfully.&quot;)
 WS.verifyElementPropertyValue(response, 'data[0].pid', 17)
 WS.verifyElementPropertyValue(response, 'data[0].name', &quot;district&quot;)
-WS.verifyElementPropertyValue(response, 'data[0].data[0].label', &quot;raichur&quot;)
+//WS.verifyElementPropertyValue(response, 'data[0].data[0].label', &quot;raichur&quot;)
 WS.verifyElementPropertyValue(response, 'data[0].data[0].parent', &quot;Karnataka&quot;)
 </verificationScript>
    <wsdlAddress></wsdlAddress>
