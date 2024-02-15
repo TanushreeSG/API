@@ -17,4 +17,4 @@ jobs:
       with:
           version: '8.6.5'
           projectPath: 'C:\Users\Tanushree SG\Desktop\Pi API testing'
-          args: '-runMode=console -projectPath="C:\Users\Tanushree SG\Desktop\Pi API testing\Pi API testing.prj" -testSuitePath="Test Suites/chain" -browserType="Web Service" -executionProfile="default" -apiKey="${{ secrets.KATALON_API_KEY }}" --config -proxy.auth.option=NO_PROXY -proxy.system.option=NO_PROXY -proxy.system.applyToDesiredCapabilities=true -webui.autoUpdateDrivers=true'
+          args: '-runMode=console -projectPath="C:\Users\Tanushree SG\Desktop\Pi API testing\Pi API testing.prj" -testSuitePath="Test Suites/chain" -browserType="Web Service" -executionProfile="default" -apiKey="${{secrets.KATALON_API_KEY}}" --config -proxy.auth.option=NO_PROXY -proxy.system.option=NO_PROXY -proxy.system.applyToDesiredCapabilities=true -webui.autoUpdateDrivers=true'
