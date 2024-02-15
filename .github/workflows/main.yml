@@ -10,7 +10,11 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Checkout
+<<<<<<< HEAD
     - uses: actions/checkout@v2
+=======
+      uses: actions/checkout@v2
+>>>>>>> 55a390c80608663f083f41ee54f3aa0edf84a939
     - name: Katalon Studio Github Action
       uses: katalon-studio/katalon-studio-github-action@v2
       with:
