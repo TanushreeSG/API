@@ -1,4 +1,4 @@
-name: Katalon Studio CI
+name: Katalon Studio CICD
 
 on:
   push:
