@@ -18,7 +18,7 @@
       <authorizationType>Bearer</authorizationType>
    </authorizationRequest>
    <autoUpdateContent>true</autoUpdateContent>
-   <connectionTimeout>-1</connectionTimeout>
+   <connectionTimeout>0</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent></httpBodyContent>
@@ -42,7 +42,7 @@
       <webElementGuid>169c51b5-3492-438a-87cb-8349cc50b912</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>9.2.0</katalonVersion>
-   <maxResponseSize>-1</maxResponseSize>
+   <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
    <restUrl>${URL}/doc/bfsData?name=district&amp;parent=Karnataka</restUrl>
@@ -52,7 +52,7 @@
    <soapRequestMethod></soapRequestMethod>
    <soapServiceEndpoint></soapServiceEndpoint>
    <soapServiceFunction></soapServiceFunction>
-   <socketTimeout>-1</socketTimeout>
+   <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
       <defaultValue>GlobalVariable.devURL</defaultValue>
@@ -85,9 +85,9 @@ assertThat(response.getStatusCode()).isIn(Arrays.asList(200, 201, 202))
 
 WS.verifyElementPropertyValue(response, 'status', 200)
 WS.verifyElementPropertyValue(response, 'message', &quot;Data extracted successfully.&quot;)
-WS.verifyElementPropertyValue(response, 'data[0].pid', 17)
+WS.verifyElementPropertyValue(response, 'data[0].pid', 32)
 WS.verifyElementPropertyValue(response, 'data[0].name', &quot;district&quot;)
-//WS.verifyElementPropertyValue(response, 'data[0].data[0].label', &quot;raichur&quot;)
+WS.verifyElementPropertyValue(response, 'data[0].data[0].label', &quot;vijayapura&quot;)
 WS.verifyElementPropertyValue(response, 'data[0].data[0].parent', &quot;Karnataka&quot;)
 </verificationScript>
    <wsdlAddress></wsdlAddress>
