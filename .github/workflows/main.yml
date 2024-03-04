@@ -1,41 +1,23 @@
-
-name: CI
+name: run the workflow
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  API:
+    types: [my-event]
 
 jobs:
   build:
+    name: run-workflow
     runs-on: windows-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Katalon Studio Github Action
-      uses: katalon-studio/katalon-studio-github-action@v2
-      with:
-          version: '8.6.6'
-          projectPath: '${{ github.workspace }}'
-          args: '-noSplash -retry=0 -statusDelay=15 -testSuiteCollections="Test Suites\chain" -apiKey="${{secrets.KATALON_API_KEY}} --config -webui.autoUpdateDrivers=true'
-
-    - name: Trigger Workflow in Another Repository
-      run: |
-        curl -X POST \
-          -H "Accept: application/vnd.github.v3+json" \
-          -H "Authorization: Bearer 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" \
-          "https://api.github.com/repos/TanushreeSG/demo-web/dispatches"
-      if: success()
-
-
-
-
-
-
-
-
-
-
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Print trigger details
+        run: |
+          echo "Triggered by: ${{ github.event_name }}"
+          echo "Event type: ${{ github.event.action }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "SHA: ${{ github.sha }}"
 
 
