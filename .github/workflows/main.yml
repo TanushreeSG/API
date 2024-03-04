@@ -19,5 +19,3 @@ jobs:
           echo "Event type: ${{ github.event.action }}"
           echo "Repository: ${{ github.repository }}"
           echo "SHA: ${{ github.sha }}"
-
-
