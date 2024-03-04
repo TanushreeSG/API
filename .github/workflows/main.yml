@@ -1,21 +1,14 @@
-name: run the workflow
+name: API Workflow
 
 on:
-  API:
+  repository_dispatch:
     types: [my-event]
 
 jobs:
   build:
-    name: run-workflow
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Print trigger details
-        run: |
-          echo "Triggered by: ${{ github.event_name }}"
-          echo "Event type: ${{ github.event.action }}"
-          echo "Repository: ${{ github.repository }}"
-          echo "SHA: ${{ github.sha }}"
+
+
