@@ -21,12 +21,12 @@ jobs:
 
       # Add your build steps here
 
-      # - name: Trigger Second Workflow
-      #   uses: repo-dispatch/action@v1
-      #   with:
-      #     token: ${{ secrets.TOKEN}}
-      #     owner: TanushreeSG
-      #     repo: demo_api
-      #     event_type: start-second-workflow
-      #     client_payload: |
-      #       key: value
+      - name: Trigger Second Workflow
+        uses: repo-dispatch/action@v1
+        with:
+          token: ${{ secrets.TOKEN}}
+          owner: TanushreeSG
+          repo: demo_api
+          event_type: start-second-workflow
+          client_payload: |
+            key: value
