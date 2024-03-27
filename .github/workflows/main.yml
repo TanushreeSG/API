@@ -24,7 +24,7 @@ jobs:
       - name: Trigger Second Workflow
         uses: repo-dispatch/action@v1
         with:
-          token: ${{ secrets.TOKEN}}
+          token: '${{ secrets.TOKEN }}'
           owner: TanushreeSG
           repo: demo_api
           event_type: start-second-workflow
