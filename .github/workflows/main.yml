@@ -1,4 +1,3 @@
-
 name: Secondary Workflow
 
 on:
@@ -6,6 +5,10 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_run:
+    workflows: ["Main Workflow"]
+    types:
+      - completed
 
 jobs:
   secondary-job:
@@ -20,3 +23,11 @@ jobs:
           projectPath: '${{ github.workspace }}'
           args: '-noSplash -retry=0 -statusDelay=15 -testSuiteCollections="Test Suites\chain" -apiKey="${{secrets.KATALON_API_KEY}} --config -webui.autoUpdateDrivers=true'
 
+  trigger-another-workflow:
+    needs: secondary-job
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger Another Workflow
+      uses: actions/workflow-dispatch@v2
+      with:
+        workflow: anotherworkflow.yaml
