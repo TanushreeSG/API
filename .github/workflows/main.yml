@@ -1,18 +1,15 @@
-name: Secondary Workflow
+name: First Workflow
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  workflow_run:
-    workflows: ["Main Workflow"]
-    types:
-      - completed
+    branches:
+      - main
 
 jobs:
-  secondary-job:
+  build:
     runs-on: ubuntu-latest
+
+    
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -23,11 +20,14 @@ jobs:
           projectPath: '${{ github.workspace }}'
           args: '-noSplash -retry=0 -statusDelay=15 -testSuiteCollections="Test Suites\chain" -apiKey="${{secrets.KATALON_API_KEY}} --config -webui.autoUpdateDrivers=true'
 
-  trigger-another-workflow:
-    needs: secondary-job
-    runs-on: ubuntu-latest
-    steps:
-    - name: Trigger Another Workflow
-      uses: actions/workflow-dispatch@v2
-      with:
-        workflow: anotherworkflow.yaml
+      # Add your build steps here
+
+      - name: Trigger Second Workflow
+        uses: repo-dispatch/action@v1
+        with:
+          token: ${{ secrets.TOKEN}}
+          owner: TanushreeSG
+          repo: demo_api
+          event_type: start-second-workflow
+          client_payload: |
+            key: value
